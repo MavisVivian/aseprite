@@ -84,3 +84,9 @@ jobs:
       shell: bash
       run: |
         cd build && ninja
+    - name: Upload Build Artifacts
+      if: runner.os == 'Windows'
+      uses: actions/upload-artifact@v4
+      with:
+        name: windows-release-build
+        path: build/**
